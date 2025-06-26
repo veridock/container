@@ -1,0 +1,4 @@
+"""
+django_integration.py
+"""
+

@@ -1,0 +1,244 @@
+svgg/
+├── README.md                           # Main project documentation
+├── LICENSE                             # MIT License
+├── setup.py                           # Package setup and installation
+├── pyproject.toml                     # Modern Python packaging config
+├── requirements.txt                   # Python dependencies
+├── requirements-dev.txt               # Development dependencies
+├── CHANGELOG.md                       # Version changelog
+├── CONTRIBUTING.md                    # Contribution guidelines
+├── .gitignore                         # Git ignore patterns
+├── .github/                           # GitHub specific files
+│   ├── workflows/                     # GitHub Actions
+│   │   ├── ci.yml                     # Continuous Integration
+│   │   ├── release.yml                # Release automation
+│   │   └── docs.yml                   # Documentation deployment
+│   ├── ISSUE_TEMPLATE/                # Issue templates
+│   │   ├── bug_report.md              # Bug report template
+│   │   ├── feature_request.md         # Feature request template
+│   │   └── question.md                # Question template
+│   └── pull_request_template.md       # PR template
+├── docs/                              # Documentation
+│   ├── index.md                       # Documentation homepage
+│   ├── installation.md               # Installation guide
+│   ├── quickstart.md                 # Quick start guide
+│   ├── cli-reference.md              # CLI command reference
+│   ├── python-api.md                 # Python API documentation
+│   ├── examples/                     # Usage examples
+│   │   ├── basic-usage.md            # Basic examples
+│   │   ├── advanced-workflows.md     # Advanced examples
+│   │   ├── web-integration.md        # Web integration examples
+│   │   └── batch-processing.md       # Batch processing examples
+│   ├── tutorials/                    # Step-by-step tutorials
+│   │   ├── creating-document-bundles.md
+│   │   ├── repository-backup.md
+│   │   └── web-export.md
+│   └── assets/                       # Documentation assets
+│       ├── images/                   # Screenshots and diagrams
+│       └── templates/                # Example templates
+├── svgg/                             # Main package directory
+│   ├── __init__.py                   # Package initialization
+│   ├── version.py                    # Version information
+│   ├── cli/                          # Command Line Interface
+│   │   ├── __init__.py
+│   │   ├── main.py                   # Main CLI entry point
+│   │   ├── commands/                 # CLI command modules
+│   │   │   ├── __init__.py
+│   │   │   ├── import_cmd.py         # Import command
+│   │   │   ├── export_cmd.py         # Export command
+│   │   │   ├── list_cmd.py           # List command
+│   │   │   ├── exclude_cmd.py        # Exclude command
+│   │   │   ├── extract_html_cmd.py   # Extract HTML command
+│   │   │   ├── extract_doc_cmd.py    # Extract document command
+│   │   │   ├── metadata_cmd.py       # Metadata command
+│   │   │   ├── changelog_cmd.py      # Changelog command
+│   │   │   ├── create_cmd.py         # Create command
+│   │   │   ├── info_cmd.py           # Info command
+│   │   │   ├── validate_cmd.py       # Validate command
+│   │   │   ├── config_cmd.py         # Config command
+│   │   │   ├── server_cmd.py         # Server command
+│   │   │   ├── batch_cmd.py          # Batch command
+│   │   │   └── utils_cmd.py          # Utils command
+│   │   ├── completion/               # Shell completion
+│   │   │   ├── __init__.py
+│   │   │   ├── bash.py               # Bash completion
+│   │   │   ├── zsh.py                # Zsh completion
+│   │   │   ├── fish.py               # Fish completion
+│   │   │   └── powershell.py         # PowerShell completion
+│   │   └── utils.py                  # CLI utilities
+│   ├── core/                         # Core functionality
+│   │   ├── __init__.py
+│   │   ├── svg_generator.py          # Main SVG generation
+│   │   ├── svg_parser.py             # SVG parsing and analysis
+│   │   ├── base64_handler.py         # Base64 encoding/decoding
+│   │   ├── metadata_manager.py       # Metadata management
+│   │   ├── file_handler.py           # File operations
+│   │   └── structure_manager.py      # Directory structure handling
+│   ├── importers/                    # Import functionality
+│   │   ├── __init__.py
+│   │   ├── base_importer.py          # Base importer class
+│   │   ├── file_importer.py          # Local file import
+│   │   ├── url_importer.py           # URL import
+│   │   ├── directory_importer.py     # Directory import
+│   │   ├── zip_importer.py           # ZIP archive import
+│   │   ├── repository_importer.py    # Git repository import
+│   │   ├── multi_importer.py         # Multiple source import
+│   │   ├── project_importer.py       # Project import with structure
+│   │   └── smart_importer.py         # Smart import with filtering
+│   ├── exporters/                    # Export functionality
+│   │   ├── __init__.py
+│   │   ├── base_exporter.py          # Base exporter class
+│   │   ├── file_exporter.py          # File system export
+│   │   ├── web_exporter.py           # HTML/MHTML/EML export
+│   │   ├── doc_exporter.py           # Document export (DOCX)
+│   │   ├── zip_exporter.py           # ZIP export
+│   │   ├── url_exporter.py           # API endpoint export
+│   │   └── batch_exporter.py         # Batch export operations
+│   ├── extractors/                   # Extraction functionality
+│   │   ├── __init__.py
+│   │   ├── file_extractor.py         # Specific file extraction
+│   │   ├── structure_extractor.py    # Structure-aware extraction
+│   │   └── content_extractor.py      # Content extraction utilities
+│   ├── listers/                      # Listing functionality
+│   │   ├── __init__.py
+│   │   ├── svg_lister.py             # SVG content listing
+│   │   ├── file_lister.py            # File listing utilities
+│   │   └── tree_formatter.py        # Tree structure formatting
+│   ├── validators/                   # Validation functionality
+│   │   ├── __init__.py
+│   │   ├── svg_validator.py          # SVG validation
+│   │   ├── file_validator.py         # File integrity validation
+│   │   ├── structure_validator.py    # Structure validation
+│   │   └── metadata_validator.py     # Metadata validation
+│   ├── server/                       # API Server
+│   │   ├── __init__.py
+│   │   ├── app.py                    # Flask/FastAPI application
+│   │   ├── routes/                   # API routes
+│   │   │   ├── __init__.py
+│   │   │   ├── import_routes.py      # Import endpoints
+│   │   │   ├── export_routes.py      # Export endpoints
+│   │   │   ├── info_routes.py        # Info endpoints
+│   │   │   └── health_routes.py      # Health check endpoints
+│   │   ├── middleware/               # Server middleware
+│   │   │   ├── __init__.py
+│   │   │   ├── auth.py               # Authentication
+│   │   │   ├── cors.py               # CORS handling
+│   │   │   └── rate_limiting.py      # Rate limiting
+│   │   └── utils.py                  # Server utilities
+│   ├── config/                       # Configuration management
+│   │   ├── __init__.py
+│   │   ├── config_manager.py         # Configuration handling
+│   │   ├── defaults.py               # Default configuration
+│   │   └── validation.py             # Config validation
+│   ├── utils/                        # Utilities
+│   │   ├── __init__.py
+│   │   ├── file_utils.py             # File handling utilities
+│   │   ├── url_utils.py              # URL handling utilities
+│   │   ├── compression_utils.py      # Compression utilities
+│   │   ├── encoding_utils.py         # Encoding utilities
+│   │   ├── git_utils.py              # Git utilities
+│   │   ├── template_utils.py         # Template handling
+│   │   └── logger.py                 # Logging utilities
+│   ├── templates/                    # Built-in templates
+│   │   ├── base.svg                  # Basic SVG template
+│   │   ├── document.svg              # Document template
+│   │   ├── presentation.svg          # Presentation template
+│   │   └── website/                  # HTML templates
+│   │       ├── default.html          # Default HTML template
+│   │       ├── bootstrap.html        # Bootstrap template
+│   │       ├── tailwind.html         # Tailwind template
+│   │       └── assets/               # Template assets
+│   │           ├── css/              # CSS files
+│   │           ├── js/               # JavaScript files
+│   │           └── images/           # Template images
+│   ├── exceptions.py                 # Custom exceptions
+│   └── constants.py                  # Constants and enums
+├── tests/                            # Test suite
+│   ├── __init__.py
+│   ├── conftest.py                   # Pytest configuration
+│   ├── fixtures/                     # Test fixtures
+│   │   ├── sample_files/             # Sample test files
+│   │   │   ├── test.pdf
+│   │   │   ├── test.png
+│   │   │   ├── test.json
+│   │   │   └── test.svg
+│   │   ├── sample_projects/          # Sample project structures
+│   │   └── sample_archives/          # Sample ZIP files
+│   ├── unit/                         # Unit tests
+│   │   ├── test_core/                # Core functionality tests
+│   │   ├── test_importers/           # Importer tests
+│   │   ├── test_exporters/           # Exporter tests
+│   │   ├── test_extractors/          # Extractor tests
+│   │   ├── test_listers/             # Lister tests
+│   │   ├── test_validators/          # Validator tests
+│   │   └── test_utils/               # Utility tests
+│   ├── integration/                  # Integration tests
+│   │   ├── test_cli_commands.py      # CLI command tests
+│   │   ├── test_workflows.py         # End-to-end workflow tests
+│   │   ├── test_server_api.py        # API server tests
+│   │   └── test_batch_operations.py  # Batch operation tests
+│   ├── performance/                  # Performance tests
+│   │   ├── test_large_files.py       # Large file handling
+│   │   ├── test_batch_performance.py # Batch processing performance
+│   │   └── benchmarks.py             # Performance benchmarks
+│   └── test_utils.py                 # Test utilities
+├── scripts/                          # Development and build scripts
+│   ├── build.py                      # Build script
+│   ├── release.py                    # Release script
+│   ├── setup_dev.py                  # Development setup
+│   ├── generate_docs.py              # Documentation generation
+│   ├── update_version.py             # Version update script
+│   └── test_coverage.py              # Coverage reporting
+├── examples/                         # Example projects and scripts
+│   ├── basic_usage/                  # Basic usage examples
+│   │   ├── simple_import.py
+│   │   ├── basic_export.py
+│   │   └── README.md
+│   ├── advanced_workflows/           # Advanced examples
+│   │   ├── project_backup.py
+│   │   ├── documentation_bundle.py
+│   │   ├── batch_processing.py
+│   │   └── README.md
+│   ├── web_integration/              # Web integration examples
+│   │   ├── flask_app.py
+│   │   ├── fastapi_app.py
+│   │   ├── django_integration.py
+│   │   └── README.md
+│   ├── ci_cd_integration/            # CI/CD examples
+│   │   ├── github_actions.yml
+│   │   ├── gitlab_ci.yml
+│   │   ├── jenkins_pipeline.groovy
+│   │   └── README.md
+│   └── config_examples/              # Configuration examples
+│       ├── basic_config.json
+│       ├── advanced_config.json
+│       ├── batch_config.json
+│       └── server_config.json
+├── docker/                           # Docker configurations
+│   ├── Dockerfile                    # Main Dockerfile
+│   ├── Dockerfile.dev                # Development Dockerfile
+│   ├── docker-compose.yml            # Docker Compose
+│   ├── docker-compose.dev.yml        # Development Docker Compose
+│   └── entrypoint.sh                 # Docker entrypoint script
+├── deployment/                       # Deployment configurations
+│   ├── kubernetes/                   # Kubernetes manifests
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── ingress.yaml
+│   ├── helm/                         # Helm charts
+│   │   ├── Chart.yaml
+│   │   ├── values.yaml
+│   │   └── templates/
+│   └── ansible/                      # Ansible playbooks
+│       ├── playbook.yml
+│       └── inventory/
+├── config/                           # Default configuration files
+│   ├── svgg.config.json              # Default configuration
+│   ├── logging.conf                  # Logging configuration
+│   └── templates.conf                # Template configuration
+└── tools/                            # Development tools
+    ├── lint.py                       # Code linting
+    ├── format.py                     # Code formatting
+    ├── security_check.py             # Security scanning
+    └── dependency_check.py           # Dependency checking
