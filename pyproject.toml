@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "svgg"
-version = "0.1.3"
+version = "0.1.4"
 description = "SVG Generator - Universal tool for creating enhanced SVG files with embedded content, Procesor metadanych - tworzenie i rozszerzanie metadanych w oparciu o pliki źródłowe poprzez usługi i bibliotekii"
 authors = ["Tom Sapletta <info@softreck.dev>"]
 maintainers = ["SVGG Development Team <dev@svgg.org>"]
