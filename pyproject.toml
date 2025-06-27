@@ -1,6 +1,14 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "svgg"
+version = "0.1.2"
+description = "SVG Generator - Universal tool for creating enhanced SVG files with embedded content"
+authors = ["Tom Sapletta <info@softreck.dev>"]
+license = "MIT"
+readme = "README.md"
 
 [project]
 name = "svgg"
@@ -9,7 +17,7 @@ description = "SVG Generator - Universal tool for creating enhanced SVG files wi
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "SVGG Development Team", email = "dev@svgg.org"},
+    {name = "Tom Sapletta", email = "info@softreck.dev"},
 ]
 maintainers = [
     {name = "SVGG Development Team", email = "dev@svgg.org"},
