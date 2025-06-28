@@ -1,44 +1,60 @@
 # SVGG - SVG Generator
-container
-# SVGG - SVG Generator
+
+[![PyPI](https://img.shields.io/pypi/v/svgg)](https://pypi.org/project/svgg/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 
 🚀 **Universal tool for creating enhanced SVG files with embedded content**
-Procesor metadanych - tworzenie i rozszerzanie metadanych w oparciu o pliki źródłowe poprzez usługi i bibliotekii
-SVGG (SVG Generator) allows you to embed any files (PDF, images, data) into SVG files, creating self-contained vector documents that work as Progressive Web Applications.
 
-## 🔧 Installation
+SVGG (SVG Generator) is a powerful tool that enables you to embed various file types (PDF, images, data) into SVG files, creating self-contained vector documents that can function as Progressive Web Applications.
+
+## 📚 Documentation
+
+Full documentation is available at [docs/](docs/):
+
+- [Getting Started](docs/guides/getting-started.md) - Installation and basic usage
+- [API Reference](docs/api/) - Complete API documentation
+- [Examples](docs/examples/) - Practical usage examples
+- [Advanced Usage](docs/guides/advanced.md) - Advanced features and techniques
+- [Troubleshooting](docs/guides/troubleshooting.md) - Common issues and solutions
+
+## ✨ Features
+
+- **File Embedding**: Embed PDFs, images, and other files into SVGs
+- **CLI & Python API**: Use from command line or integrate into your Python projects
+- **Metadata Support**: Add custom metadata to your SVGs
+- **Batch Processing**: Process multiple files at once
+- **Template System**: Use custom SVG templates with placeholders
+- **Extraction**: Easily extract embedded files from SVGs
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
 pip install svgg
 ```
 
-## 🚀 Quick Start
+### Basic Usage
 
-### Command Line Interface
+#### Command Line
 
 ```bash
-# Embed PDF into SVG
+# Embed a file into an SVG
+svgg embed document.pdf --into template.svg --output enhanced.svg
 
-
-
-# Create SVG bundle from multiple files
-svgg create --files "*.pdf,*.png,*.json" --output bundle.svg
-
-# Extract embedded files from SVG
-svgg extract document.svg --output-dir ./extracted/
-
-# Show embedded files info
-svgg info document.svg
+# Extract embedded files
+svgg extract enhanced.svg --output-dir ./extracted/
 ```
 
-### Python API
+#### Python API
 
 ```python
 import svgg
 
-# Create SVG with embedded PDF
+# Create SVG with embedded files
 generator = svgg.SVGGenerator()
-result = generator.embed(
+generator.embed(
     svg_file="template.svg",
     files=["document.pdf", "image.png"],
     output="enhanced.svg"
@@ -46,58 +62,20 @@ result = generator.embed(
 
 # Extract embedded content
 extractor = svgg.SVGExtractor()
-files = extractor.extract("enhanced.svg", output_dir="./extracted/")
-print(f"Extracted {len(files)} files")
+extractor.extract("enhanced.svg", output_dir="./extracted/")
 ```
 
-## 📖 Detailed Usage
+## 🤝 Contributing
 
-### 1. Embedding Files
+Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-#### Single File Embedding
-```python
-import svgg
+## 📄 License
 
-# Basic embedding
-generator = svgg.SVGGenerator()
-generator.embed(
-    svg_file="base.svg",
-    files="document.pdf",
-    output="result.svg"
-)
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
 
-# With metadata
-generator.embed(
-    svg_file="base.svg", 
-    files="document.pdf",
-    output="result.svg",
-    metadata={
-        "title": "Invoice Document",
-        "author": "Company Inc.",
-        "created": "2025-06-26"
-    }
-)
-```
+## 📧 Contact
 
-#### Multiple Files Embedding
-```python
-# Embed multiple files
-generator.embed(
-    svg_file="template.svg",
-    files=[
-        "invoice.pdf",
-        "logo.png", 
-        "data.json",
-        "styles.css"
-    ],
-    output="bundle.svg",
-    compression=True  # Enable compression
-)
-
-# From directory
-generator.embed_directory(
-    svg_file="template.svg",
-    directory="./assets/",
+For support or questions, please [open an issue](https://github.com/veridock/svgg/issues).
     patterns=["*.pdf", "*.png", "*.json"],
     output="bundle.svg"
 )
