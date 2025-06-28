@@ -48,6 +48,9 @@ python-magic = "^0.4.24"
 tqdm = "^4.60.0"
 colorama = "^0.4.4"
 
+[tool.poetry.scripts]
+svgg = "svgg.cli.main:main"
+
 [options.extras_require]
 all = ["pillow>=10.1.0"]
 

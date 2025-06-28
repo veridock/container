@@ -3,7 +3,7 @@ container
 # SVGG - SVG Generator
 
 🚀 **Universal tool for creating enhanced SVG files with embedded content**
-
+Procesor metadanych - tworzenie i rozszerzanie metadanych w oparciu o pliki źródłowe poprzez usługi i bibliotekii
 SVGG (SVG Generator) allows you to embed any files (PDF, images, data) into SVG files, creating self-contained vector documents that work as Progressive Web Applications.
 
 ## 🔧 Installation
@@ -18,7 +18,8 @@ pip install svgg
 
 ```bash
 # Embed PDF into SVG
-svgg embed document.pdf --into template.svg --output enhanced.svg
+
+
 
 # Create SVG bundle from multiple files
 svgg create --files "*.pdf,*.png,*.json" --output bundle.svg
